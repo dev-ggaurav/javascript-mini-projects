@@ -1,29 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
-    /* font-size: 62.5%; */
+html {
+    font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
 }
 
-a{
+li {
+    list-style: none;
+}
+
+a {
     text-decoration: none;
 }
 
-ul,li{
-    list-style:none;
-}
-
 button{
-    background: none;
-    border: none;
+    all: unset;
+}
+.navbar{
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid rgb(236, 236, 236);
 }
 
-body{
-    padding: 20px;
+.nav-menu {
+    width: 100%;
+    position: fixed;
+    left: -100%;
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 3rem 0;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.nav-menu.active {
+    left: 0;
+    box-shadow:
+        0 10px 27px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.hamburger{
+    cursor: pointer;
+}
+
+.nav-logo {
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: #482ff7;
+}
+
+.nav-link{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #475569;
+}
+
+.nav-link:hover{
+    color: #482ff7;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media only screen and (min-width: 768px) {
+    .hamburger{
+        display: none;
+    }
+
+    .nav-menu {
+        width: initial;
+        position: initial;
+        left: initial;
+        flex-direction: row;
+        padding:0;
+    }
 }
